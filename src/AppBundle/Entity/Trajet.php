@@ -183,6 +183,24 @@ class Trajet
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getLieuReception()
+    {
+        return $this->lieuReception;
+    }
+
+    /**
+     * @param mixed $lieuReception
+     * @return Trajet
+     */
+    public function setLieuReception($lieuReception)
+    {
+        $this->lieuReception = $lieuReception;
+        return $this;
+    }
+
 
 
 

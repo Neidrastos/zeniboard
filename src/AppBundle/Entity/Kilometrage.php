@@ -93,6 +93,24 @@ class Kilometrage
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getVehicule()
+    {
+        return $this->vehicule;
+    }
+
+    /**
+     * @param mixed $vehicule
+     * @return Kilometrage
+     */
+    public function setVehicule($vehicule)
+    {
+        $this->vehicule = $vehicule;
+        return $this;
+    }
+
 
 
 

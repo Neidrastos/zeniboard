@@ -160,6 +160,42 @@ class Vehicule
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getTrajet()
+    {
+        return $this->trajet;
+    }
+
+    /**
+     * @param mixed $trajet
+     * @return Vehicule
+     */
+    public function setTrajet($trajet)
+    {
+        $this->trajet = $trajet;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCarburant()
+    {
+        return $this->carburant;
+    }
+
+    /**
+     * @param mixed $carburant
+     * @return Vehicule
+     */
+    public function setCarburant($carburant)
+    {
+        $this->carburant = $carburant;
+        return $this;
+    }
+
 
 
 
