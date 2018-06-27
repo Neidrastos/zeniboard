@@ -6,23 +6,18 @@
  * Time: 10:48
  */
 
-// src/AppBundle/Controller/LuckyController.php
 namespace AppBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
-class LuckyController
+class AdminController extends Controller
 {
     /**
-     * @Route("/lucky/number")
+     * @Route("/admin", name="admin_dashboard")
      */
-    public function numberAction()
+    public function indexAction()
     {
-        $number = random_int(0, 100);
-
-        return new Response(
-            '<html><body>Lucky number: '.$number.'</body></html>'
-        );
+        return $this->render('@AppBundle/admin/index.html.twig');
     }
 }
