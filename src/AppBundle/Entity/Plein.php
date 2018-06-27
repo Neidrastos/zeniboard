@@ -80,11 +80,14 @@ class Plein
 
     /**
      * @param mixed $trajet
+     * @return Plein
      */
-    public function setTrajet($trajet): void
+    public function setTrajet($trajet)
     {
         $this->trajet = $trajet;
+        return $this;
     }
+
 
 
 }

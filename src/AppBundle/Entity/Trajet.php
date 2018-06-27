@@ -175,27 +175,15 @@ class Trajet
 
     /**
      * @param mixed $plein
+     * @return Trajet
      */
-    public function setPlein($plein): void
+    public function setPlein($plein)
     {
         $this->plein = $plein;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getLieuReception()
-    {
-        return $this->lieuReception;
-    }
 
-    /**
-     * @param mixed $lieuReception
-     */
-    public function setLieuReception($lieuReception): void
-    {
-        $this->lieuReception = $lieuReception;
-    }
 
 
 }

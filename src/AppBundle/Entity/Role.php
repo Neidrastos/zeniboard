@@ -79,12 +79,13 @@ class Role
 
     /**
      * @param mixed $utilisateur
+     * @return Role
      */
-    public function setUtilisateur($utilisateur): void
+    public function setUtilisateur($utilisateur)
     {
         $this->utilisateur = $utilisateur;
+        return $this;
     }
-
 
 
 }

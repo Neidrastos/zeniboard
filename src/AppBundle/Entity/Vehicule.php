@@ -145,22 +145,6 @@ class Vehicule
     /**
      * @return mixed
      */
-    public function getCarburant()
-    {
-        return $this->carburant;
-    }
-
-    /**
-     * @param mixed $carburant
-     */
-    public function setCarburant($carburant): void
-    {
-        $this->carburant = $carburant;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getKilometrage()
     {
         return $this->kilometrage;
@@ -168,27 +152,15 @@ class Vehicule
 
     /**
      * @param mixed $kilometrage
+     * @return Vehicule
      */
-    public function setKilometrage($kilometrage): void
+    public function setKilometrage($kilometrage)
     {
         $this->kilometrage = $kilometrage;
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getTrajet()
-    {
-        return $this->trajet;
-    }
 
-    /**
-     * @param mixed $trajet
-     */
-    public function setTrajet($trajet): void
-    {
-        $this->trajet = $trajet;
-    }
 
 
 

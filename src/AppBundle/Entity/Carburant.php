@@ -78,10 +78,12 @@ class Carburant
 
     /**
      * @param mixed $vehicule
+     * @return Carburant
      */
-    public function setVehicule($vehicule): void
+    public function setVehicule($vehicule)
     {
         $this->vehicule = $vehicule;
+        return $this;
     }
 
 

@@ -78,11 +78,15 @@ class LieuReception
 
     /**
      * @param mixed $trajet
+     * @return LieuReception
      */
-    public function setTrajet($trajet): void
+    public function setTrajet($trajet)
     {
         $this->trajet = $trajet;
+        return $this;
     }
+
+
 
 
 }

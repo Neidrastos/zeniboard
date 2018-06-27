@@ -171,18 +171,21 @@ class Utilisateur
     /**
      * @return mixed
      */
-    public function getRole()
+    public function getTrajet()
     {
-        return $this->role;
+        return $this->trajet;
     }
 
     /**
-     * @param mixed $role
+     * @param mixed $trajet
+     * @return Utilisateur
      */
-    public function setRole($role): void
+    public function setTrajet($trajet)
     {
-        $this->role = $role;
+        $this->trajet = $trajet;
+        return $this;
     }
+
 
 
 }

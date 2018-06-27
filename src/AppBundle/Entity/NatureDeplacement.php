@@ -77,10 +77,12 @@ class NatureDeplacement
 
     /**
      * @param mixed $trajet
+     * @return NatureDeplacement
      */
-    public function setTrajet($trajet): void
+    public function setTrajet($trajet)
     {
         $this->trajet = $trajet;
+        return $this;
     }
 
 
