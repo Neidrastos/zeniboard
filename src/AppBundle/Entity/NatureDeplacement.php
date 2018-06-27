@@ -29,9 +29,9 @@ class NatureDeplacement
     private $nomNatureDeplacement;
 
     /**
-     * @ORM\OneToMany(targetEntity="Trajet", mappedBy="NatureDeplacement")
+     * @ORM\OneToMany(targetEntity="Trajet", mappedBy="natureDeplacement")
      */
-    private $trajet;
+    private $trajets;
 
     /**
      * Get id.
@@ -70,20 +70,24 @@ class NatureDeplacement
     /**
      * @return mixed
      */
-    public function getTrajet()
+    public function getTrajets()
     {
-        return $this->trajet;
+        return $this->trajets;
     }
 
     /**
-     * @param mixed $trajet
+     * @param mixed $trajets
      * @return NatureDeplacement
      */
-    public function setTrajet($trajet)
+    public function setTrajets($trajets)
     {
-        $this->trajet = $trajet;
+        $this->trajets = $trajets;
         return $this;
     }
+
+
+
+
 
 
 

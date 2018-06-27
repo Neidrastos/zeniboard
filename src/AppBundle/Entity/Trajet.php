@@ -43,40 +43,40 @@ class Trajet
     private $commentaireTrajet;
 
     /**
-     * @ORM\OneToMany(targetEntity="Plein", mappedBy="Trajet")
+     * @ORM\OneToMany(targetEntity="Plein", mappedBy="trajet")
      */
-    private $plein;
+    private $pleins;
 
     /**
-     * @ORM\ManyToOne(targetEntity="LieuReception", inversedBy="Trajet")
+     * @ORM\ManyToOne(targetEntity="LieuReception", inversedBy="trajets")
      * @ORM\JoinColumn(name="id_lieu_reception", referencedColumnName="id_lieu_reception", onDelete="CASCADE")
      */
 
     private $lieuReception;
 
     /**
-     * @ORM\ManyToOne(targetEntity="NatureDeplacement", inversedBy="Trajet")
+     * @ORM\ManyToOne(targetEntity="NatureDeplacement", inversedBy="trajets")
      * @ORM\JoinColumn(name="id_nature_deplacement", referencedColumnName="id_nature_deplacement", onDelete="CASCADE")
      */
 
     private $natureDeplacement;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Kilometrage", inversedBy="Trajet")
+     * @ORM\ManyToOne(targetEntity="Kilometrage", inversedBy="trajets")
      * @ORM\JoinColumn(name="id_kilometrage", referencedColumnName="id_kilometrage", onDelete="CASCADE")
      */
 
     private $kilometrage;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Vehicule", inversedBy="Trajet")
+     * @ORM\ManyToOne(targetEntity="Vehicule", inversedBy="trajets")
      * @ORM\JoinColumn(name="id_vehicule", referencedColumnName="id_vehicule", onDelete="CASCADE")
      */
 
     private $vehicule;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="Trajet")
+     * @ORM\ManyToOne(targetEntity="Utilisateur", inversedBy="trajets")
      * @ORM\JoinColumn(name="id_utilisateur", referencedColumnName="id_utilisateur", onDelete="CASCADE")
      */
 
@@ -168,20 +168,116 @@ class Trajet
     /**
      * @return mixed
      */
-    public function getPlein()
+    public function getPleins()
     {
-        return $this->plein;
+        return $this->pleins;
     }
 
     /**
-     * @param mixed $plein
+     * @param mixed $pleins
      * @return Trajet
      */
-    public function setPlein($plein)
+    public function setPleins($pleins)
     {
-        $this->plein = $plein;
+        $this->pleins = $pleins;
         return $this;
     }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getLieuReception()
+    {
+        return $this->lieuReception;
+    }
+
+    /**
+     * @param mixed $lieuReception
+     * @return Trajet
+     */
+    public function setLieuReception($lieuReception)
+    {
+        $this->lieuReception = $lieuReception;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNatureDeplacement()
+    {
+        return $this->natureDeplacement;
+    }
+
+    /**
+     * @param mixed $natureDeplacement
+     * @return Trajet
+     */
+    public function setNatureDeplacement($natureDeplacement)
+    {
+        $this->natureDeplacement = $natureDeplacement;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getKilometrage()
+    {
+        return $this->kilometrage;
+    }
+
+    /**
+     * @param mixed $kilometrage
+     * @return Trajet
+     */
+    public function setKilometrage($kilometrage)
+    {
+        $this->kilometrage = $kilometrage;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVehicule()
+    {
+        return $this->vehicule;
+    }
+
+    /**
+     * @param mixed $vehicule
+     * @return Trajet
+     */
+    public function setVehicule($vehicule)
+    {
+        $this->vehicule = $vehicule;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
+
+    /**
+     * @param mixed $utilisateur
+     * @return Trajet
+     */
+    public function setUtilisateur($utilisateur)
+    {
+        $this->utilisateur = $utilisateur;
+        return $this;
+    }
+
+
+
+
 
 
 
