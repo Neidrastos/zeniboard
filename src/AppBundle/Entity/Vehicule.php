@@ -43,18 +43,18 @@ class Vehicule
     private $modeleVehicule;
 
     /**
-     * @ORM\OneToMany(targetEntity="Kilometrage", mappedBy="Vehicule")
+     * @ORM\OneToMany(targetEntity="Kilometrage", mappedBy="vehicule")
      */
 
-    private $kilometrage;
+    private $kilometrages;
 
     /**
-     * @ORM\OneToMany(targetEntity="Trajet", mappedBy="Vehicule")
+     * @ORM\OneToMany(targetEntity="Trajet", mappedBy="vehicule")
      */
-    private $trajet;
+    private $trajets;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Carburant", inversedBy="Vehicule")
+     * @ORM\ManyToOne(targetEntity="Carburant", inversedBy="vehicules")
      * @ORM\JoinColumn(name="id_carburant", referencedColumnName="id_carburant", onDelete="CASCADE")
      */
 
@@ -145,36 +145,36 @@ class Vehicule
     /**
      * @return mixed
      */
-    public function getKilometrage()
+    public function getKilometrages()
     {
-        return $this->kilometrage;
+        return $this->kilometrages;
     }
 
     /**
-     * @param mixed $kilometrage
+     * @param mixed $kilometrages
      * @return Vehicule
      */
-    public function setKilometrage($kilometrage)
+    public function setKilometrages($kilometrages)
     {
-        $this->kilometrage = $kilometrage;
+        $this->kilometrages = $kilometrages;
         return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getTrajet()
+    public function getTrajets()
     {
-        return $this->trajet;
+        return $this->trajets;
     }
 
     /**
-     * @param mixed $trajet
+     * @param mixed $trajets
      * @return Vehicule
      */
-    public function setTrajet($trajet)
+    public function setTrajets($trajets)
     {
-        $this->trajet = $trajet;
+        $this->trajets = $trajets;
         return $this;
     }
 
@@ -195,6 +195,13 @@ class Vehicule
         $this->carburant = $carburant;
         return $this;
     }
+
+
+
+
+
+
+
 
 
 

@@ -29,9 +29,9 @@ class Carburant
     private $nomCarburant;
 
     /**
-     * @ORM\OneToMany(targetEntity="Vehicule", mappedBy="Carburant")
+     * @ORM\OneToMany(targetEntity="Vehicule", mappedBy="carburant")
      */
-    private $vehicule;
+    private $vehicules;
 
 
     /**
@@ -71,20 +71,24 @@ class Carburant
     /**
      * @return mixed
      */
-    public function getVehicule()
+    public function getVehicules()
     {
-        return $this->vehicule;
+        return $this->vehicules;
     }
 
     /**
-     * @param mixed $vehicule
+     * @param mixed $vehicules
      * @return Carburant
      */
-    public function setVehicule($vehicule)
+    public function setVehicules($vehicules)
     {
-        $this->vehicule = $vehicule;
+        $this->vehicules = $vehicules;
         return $this;
     }
+
+
+
+
 
 
 }

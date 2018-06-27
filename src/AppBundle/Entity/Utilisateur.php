@@ -50,12 +50,12 @@ class Utilisateur
     private $motDePasseUtilisateur;
 
     /**
-     * @ORM\OneToMany(targetEntity="Trajet", mappedBy="Utilisateur")
+     * @ORM\OneToMany(targetEntity="Trajet", mappedBy="utilisateur")
      */
-    private $trajet;
+    private $trajets;
 
     /**
-     * @ORM\ManyToOne(targetEntity="role", inversedBy="Utilisateur")
+     * @ORM\ManyToOne(targetEntity="role", inversedBy="utilisateurs")
      * @ORM\JoinColumn(name="id_role", referencedColumnName="id_role", onDelete="CASCADE")
      */
 
@@ -171,18 +171,18 @@ class Utilisateur
     /**
      * @return mixed
      */
-    public function getTrajet()
+    public function getTrajets()
     {
-        return $this->trajet;
+        return $this->trajets;
     }
 
     /**
-     * @param mixed $trajet
+     * @param mixed $trajets
      * @return Utilisateur
      */
-    public function setTrajet($trajet)
+    public function setTrajets($trajets)
     {
-        $this->trajet = $trajet;
+        $this->trajets = $trajets;
         return $this;
     }
 
@@ -203,6 +203,9 @@ class Utilisateur
         $this->role = $role;
         return $this;
     }
+
+
+
 
 
 

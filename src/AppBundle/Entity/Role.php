@@ -29,10 +29,10 @@ class Role
     private $nomRole;
 
     /**
-     * @ORM\OneToMany(targetEntity="Utilisateur", mappedBy="Role")
+     * @ORM\OneToMany(targetEntity="Utilisateur", mappedBy="role")
      */
 
-    private $utilisateur;
+    private $utilisateurs;
 
 
     /**
@@ -72,20 +72,24 @@ class Role
     /**
      * @return mixed
      */
-    public function getUtilisateur()
+    public function getUtilisateurs()
     {
-        return $this->utilisateur;
+        return $this->utilisateurs;
     }
 
     /**
-     * @param mixed $utilisateur
+     * @param mixed $utilisateurs
      * @return Role
      */
-    public function setUtilisateur($utilisateur)
+    public function setUtilisateurs($utilisateurs)
     {
-        $this->utilisateur = $utilisateur;
+        $this->utilisateurs = $utilisateurs;
         return $this;
     }
+
+
+
+
 
 
 

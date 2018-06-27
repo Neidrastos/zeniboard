@@ -29,9 +29,9 @@ class LieuReception
     private $nomLieuReception;
 
     /**
-     * @ORM\OneToMany(targetEntity="Trajet", mappedBy="LieuReception")
+     * @ORM\OneToMany(targetEntity="Trajet", mappedBy="lieuReception")
      */
-    private $trajet;
+    private $trajets;
 
 
     /**
@@ -71,20 +71,24 @@ class LieuReception
     /**
      * @return mixed
      */
-    public function getTrajet()
+    public function getTrajets()
     {
-        return $this->trajet;
+        return $this->trajets;
     }
 
     /**
-     * @param mixed $trajet
+     * @param mixed $trajets
      * @return LieuReception
      */
-    public function setTrajet($trajet)
+    public function setTrajets($trajets)
     {
-        $this->trajet = $trajet;
+        $this->trajets = $trajets;
         return $this;
     }
+
+
+
+
 
 
 

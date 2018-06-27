@@ -29,7 +29,7 @@ class Plein
     private $montantPlein;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Trajet", inversedBy="Plein")
+     * @ORM\ManyToOne(targetEntity="Trajet", inversedBy="pleins")
      * @ORM\JoinColumn(name="id_trajet", referencedColumnName="id_trajet", onDelete="CASCADE", nullable= true)
      */
 
@@ -87,6 +87,12 @@ class Plein
         $this->trajet = $trajet;
         return $this;
     }
+
+
+
+
+
+
 
 
 
