@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Vehicle controller.
  *
- * @Route("admin/vehicles")
+ * @Route("admin/vehicle")
  */
 class VehicleController extends Controller
 {

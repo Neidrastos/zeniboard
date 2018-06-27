@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Parameter controller.
  *
- * @Route("admin/parameters")
+ * @Route("admin/parameter")
  */
 class ParameterController extends Controller
 {
