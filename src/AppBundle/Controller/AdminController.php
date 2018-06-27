@@ -14,8 +14,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends Controller
 {
     /**
-     * @Route("/admin", name="admin_dashboard")
-     */
+     * Displays the admin dashboard
+     *
+     * @Route("/admin", name="adminDashboard")
+    */
     public function indexAction()
     {
         return $this->render('@AppBundle/admin/index.html.twig');
