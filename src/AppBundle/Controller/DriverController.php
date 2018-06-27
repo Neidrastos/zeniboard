@@ -57,4 +57,15 @@ class DriverController extends Controller
     {
         return $this->redirectToRoute('indexDriver');
     }
+
+    /**
+     * Shows a list of trajects of a driver
+     *
+     * @Route("/{id}/traject", name="showListTrajectDriver")
+     */
+    public function showTrajectsAction()
+    {
+        return $this->render('@MediaBundle/admin/driver/traject.html.twig');
+    }
+
 }
