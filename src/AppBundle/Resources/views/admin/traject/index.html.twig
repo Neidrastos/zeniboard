@@ -1,1 +1,8 @@
-Hello world route indexTrajects !
+{% extends 'base-admin.html.twig' %}
+
+{% block body %}
+    <div class="wrapper dashboard">
+        <h2>Tous les trajets</h2>
+        <a href="{{ path('newTraject') }}" class="btn btn-success" role="button" aria-pressed="true">+ Ajouter un trajet</a>
+    </div>
+{% endblock %}

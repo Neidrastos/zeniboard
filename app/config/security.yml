@@ -8,10 +8,10 @@ security:
             #memory: ~
             memory:
                 users:
-                    myuser:
+                    user@eni.fr:
                         password: test
                         roles: 'ROLE_USER'
-                    myadmin:
+                    admin@eni.fr:
                         password: test
                         roles: 'ROLE_ADMIN'
 
