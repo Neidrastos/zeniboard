@@ -1,5 +1,8 @@
 {% extends 'base-admin.html.twig' %}
 
 {% block body %}
-    <h1>Tous les conducteurs</h1>
+    <div class="wrapper dashboard">
+        <h2>Tous les conducteurs</h2>
+        <a href="{{ path('newDriver') }}" class="btn btn-success" role="button" aria-pressed="true">+ Ajouter un conducteur</a>
+    </div>
 {% endblock %}

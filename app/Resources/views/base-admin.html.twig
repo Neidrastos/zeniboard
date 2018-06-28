@@ -15,10 +15,10 @@
                 <a class="navbar-brand" href="{{ path('adminDashboard') }}">
                     <img src="{{ asset('common/img/logo-zeniboard.jpg') }}" width="160px" alt="ZeniBoard">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#adminNavbar" aria-controls="adminNavbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse">
+                <div class="collapse navbar-collapse" id="adminNavbar">
                     <div class="navbar-nav mr-auto">
                         <a class="nav-item nav-link {{ app.request.get('_route') == 'adminDashboard' ? 'active' }}" href="{{ path('adminDashboard') }}">Dashboard</a>
                         <a class="nav-item nav-link {{ app.request.get('_route') == 'indexVehicle' ? 'active' }}" href="{{ path('indexVehicle') }}">Véhicules</a>
