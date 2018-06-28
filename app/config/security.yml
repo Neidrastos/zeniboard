@@ -3,20 +3,15 @@
 security:
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
-    providers:
-        in_memory:
-            #memory: ~
-            memory:
-                users:
-                    user@eni.fr:
-                        password: test
-                        roles: 'ROLE_USER'
-                    admin@eni.fr:
-                        password: test
-                        roles: 'ROLE_ADMIN'
-
     encoders:
-           Symfony\Component\Security\Core\User\User: plaintext
+        AppBundle\Entity\Utilisateur:
+            algorithm: bcrypt
+
+    providers:
+        our_db_provider:
+            entity:
+                 class: AppBundle:Utilisateur
+                 property: emailUtilisateur
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -32,6 +27,8 @@ security:
             logout:
                   path: /logout
                   target: /
+            provider: our_db_provider
+
 
     access_control:
             - { path: ^/admin, roles: ROLE_ADMIN }

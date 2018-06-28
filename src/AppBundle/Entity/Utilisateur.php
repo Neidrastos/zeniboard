@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Utilisateur
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UtilisateurRepository")
  */
-class Utilisateur
+class Utilisateur implements UserInterface, \Serializable
 {
     /**
      * @var int
@@ -38,14 +40,20 @@ class Utilisateur
     /**
      * @var string
      *
-     * @ORM\Column(name="email_utilisateur", type="string", length=60)
+     * @ORM\Column(name="email_utilisateur", type="string", length=60, unique=true)
      */
     private $emailUtilisateur;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
+     */
+    private $plainPassword;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="mot_de_passe_utilisateur", type="string", length=45)
+     * @ORM\Column(name="mot_de_passe_utilisateur", type="string")
      */
     private $motDePasseUtilisateur;
 
@@ -55,12 +63,10 @@ class Utilisateur
     private $trajets;
 
     /**
-     * @ORM\ManyToOne(targetEntity="role", inversedBy="utilisateurs")
-     * @ORM\JoinColumn(name="id_role", referencedColumnName="id_role", onDelete="CASCADE")
+     * @ORM\Column(name="roles_utilisateur", type="array")
      */
 
-    private $role;
-
+    private $roles;
 
     /**
      * Get id.
@@ -187,26 +193,80 @@ class Utilisateur
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getRole()
+    public function getRoles()
     {
-        return $this->role;
+        return $this->roles;
     }
 
     /**
-     * @param mixed $role
-     * @return Utilisateur
+     * @return array
      */
-    public function setRole($role)
+    public function setRoles($roles)
     {
-        $this->role = $role;
+        $this->roles = $roles;
         return $this;
     }
 
+    /**
+     * add doc symfony user interface
+     */
+    public function getUsername()
+    {
+        return $this->emailUtilisateur;
+    }
 
+    public function getSalt()
+    {
+        // you *may* need a real salt depending on your encoder
+        // see section on salt below
+        return null;
+    }
 
+    public function getPassword()
+    {
+        return $this->motDePasseUtilisateur;
+    }
 
+    public function eraseCredentials()
+    {
+    }
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->emailUtilisateur,
+            $this->motDePasseUtilisateur
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->emailUtilisateur,
+            $this->motDePasseUtilisateur
+            ) = unserialize($serialized, ['allowed_classes' => false]);
+    }
+
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+    }
+
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
 
 
 }

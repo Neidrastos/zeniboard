@@ -9,6 +9,10 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
+use AppBundle\Form\UtilisateurType;
+use AppBundle\Entity\Utilisateur;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * Administrator controller.
@@ -28,13 +32,39 @@ class AdministratorController extends Controller
     }
 
     /**
-     * Creates a new administrator
+     * add a registration form
      *
      * @Route("/new", name="newAdministrator")
      */
-    public function newAction()
+    public function newAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
-        return $this->render('@AppBundle/admin/parameter/administrator/new.html.twig');
+        // 1) build the form
+        $user = new Utilisateur();
+        $form = $this->createForm(UtilisateurType::class, $user);
+
+        // 2) handle the submit (will only happen on POST)
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // 3) Encode the password (you could also do this via Doctrine listener)
+            $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
+            $user->setMotDePasseUtilisateur($password);
+
+            // 4) Add the roles
+            $user->setRoles(['ROLE_ADMIN']);
+
+            // 5) save the User!
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('indexAdministrator');
+        }
+
+        return $this->render(
+            '@AppBundle/admin/parameter/administrator/new.html.twig',
+            array('form' => $form->createView())
+        );
     }
 
     /**
@@ -45,7 +75,7 @@ class AdministratorController extends Controller
      */
     public function editAction()
     {
-        return $this->render('@MediaBundle/admin/parameter/administrator/edit.html.twig');
+        return $this->render('@AppBundle/admin/parameter/administrator/edit.html.twig');
     }
 
     /**
