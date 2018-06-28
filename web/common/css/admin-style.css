@@ -1,4 +1,15 @@
-body {
+body.admin {
     color: white;
     background-color: #134A80;
+}
+
+/* CONNEXION */
+
+body.admin .login-window {
+    margin-top: 50px;
+    width: 300px;
+}
+
+body.admin .login-window .btn {
+    margin-top: 20px;
 }

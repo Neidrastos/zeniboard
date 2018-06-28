@@ -35,8 +35,7 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
-    form_themes:
-            - "bootstrap_4_layout.html.twig"
+    form_themes: ["bootstrap_4_layout.html.twig"]
     paths:
             '%kernel.project_dir%/src/AppBundle/Resources/views': AppBundle
 
