@@ -1,5 +1,25 @@
 {% extends 'base-admin.html.twig' %}
 
 {% block body %}
-    <h1>Paramètres de l'application</h1>
+    <div class="wrapper dashboard">
+        <div class="row">
+            <div class="col">
+                <h2>Toutes les natures de trajet</h2>
+                <a href="{{ path('newNature') }}" class="btn btn-success" role="button" aria-pressed="true">+ Ajouter une nature de trajet</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h2>Tous les lieux de réception</h2>
+                <a href="{{ path('newPlace') }}" class="btn btn-success" role="button" aria-pressed="true">+ Ajouter un lieu de réception</a>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h2>Tous les utilisateurs</h2>
+                <a href="{{ path('newAdministrator') }}" class="btn btn-success" role="button" aria-pressed="true">+ Ajouter un utilisateur</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

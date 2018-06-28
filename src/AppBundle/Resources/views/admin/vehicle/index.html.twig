@@ -1,5 +1,8 @@
 {% extends 'base-admin.html.twig' %}
 
 {% block body %}
-    <h1>Tous les véhicules</h1>
+    <div class="wrapper dashboard">
+        <h2>Tous les véhicules</h2>
+        <a href="{{ path('newVehicle') }}" class="btn btn-success" role="button" aria-pressed="true">+ Ajouter un trajet</a>
+    </div>
 {% endblock %}
