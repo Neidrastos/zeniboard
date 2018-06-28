@@ -1,4 +1,4 @@
-{% extends 'base-admin.html.twig' %}
+{% extends 'base-admin-login.html.twig' %}
 
 {% block body %}
     <div class="container">
@@ -16,10 +16,12 @@
                     <div class="form-group">
                         <label for="username">Adresse email</label>
                         <input type="email" class="form-control" id="username" name="_username" aria-describedby="emailHelp"  placeholder="Votre adresse email" value="{{ last_username }}">
+                        <small id="emailHelp" class="form-text text-muted">Profil conducteur : user@eni.fr<br>Profil administrateur : admin@eni.fr</small>
                     </div>
                     <div class="form-group">
                         <label for="password">Mot de passe</label>
                         <input type="password" class="form-control" id="password" name="_password" placeholder="Votre mot de passe">
+                        <small id="passwordHelp" class="form-text text-muted">Mot de passe : test</small>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
