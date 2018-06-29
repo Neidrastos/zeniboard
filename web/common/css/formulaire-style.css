@@ -68,7 +68,7 @@ img {
     width: 40%;
 }
 
-a {
+nav {
     position: absolute;
     right: 10%;
     top: 5%;
@@ -79,7 +79,7 @@ a {
     nav {
         text-align: right;
     }
-    a {
+    nav {
         position: static;
         text-align: right;
 
