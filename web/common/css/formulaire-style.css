@@ -66,3 +66,21 @@ form {
 img {
     width: 40%;
 }
+
+a {
+    position: absolute;
+    right: 10%;
+    top: 5%;
+
+}
+
+@media screen and (max-width: 640px) {
+    nav {
+        text-align: right;
+    }
+    a {
+        position: static;
+        text-align: right;
+
+    }
+}
