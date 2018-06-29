@@ -7,8 +7,11 @@
  */
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\LieuReception;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 /**
  * Place controller.
@@ -32,9 +35,30 @@ class PlaceController extends Controller
      *
      * @Route("/new", name="newPlace")
      */
-    public function newAction()
+    public function newAction(Request $request)
     {
-        return $this->render('@AppBundle/admin/parameter/place/new.html.twig');
+        // creates a task and gives it some dummy data for this example
+        $place = new LieuReception();
+
+        $form = $this->createFormBuilder($place)
+            ->add('nomLieuReception', TextType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $place->setNomLieuReception($form['nomLieuReception']->getData());
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($place);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('indexParameter');
+        }
+
+        return $this->render('@AppBundle/admin/parameter/place/new.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 
     /**
