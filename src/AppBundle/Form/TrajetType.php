@@ -70,11 +70,8 @@ class TrajetType extends AbstractType
                     'mapped' => false
             ))
 
-
-
-
-
             ->add('commentaireTrajet', TextareaType::class, array(
+                'required' => false ,
                 'constraints' => array(
                     new Length(array('max' => '255'))
                 )
