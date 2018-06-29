@@ -2,17 +2,55 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Kilometrage;
+use AppBundle\Entity\Vehicule;
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
+use AppBundle\Entity\Trajet;
+use AppBundle\Form\TrajetType;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     *
+     * @Template
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        return $this->render('@AppBundle/default/index.html.twig');
+
+        $em = $this->getDoctrine()->getManager();
+        $trajet= new Trajet();
+
+        $form = $this->createForm(TrajetType::class, $trajet);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+
+            $kilometrage = new Kilometrage();
+            $vehicule = $form->get("vehicule")->getData();
+            $vehicule->getId();
+
+            $valueKilometrage = $form->get("kilometrage")->getData();
+            $kilometrage->setValeurKilometrage($valueKilometrage);
+            $trajet->setKilometrage($kilometrage);
+            $kilometrage->setVehicule($vehicule);
+
+            $em->persist($kilometrage);
+            $em->persist($trajet);
+
+            $em->flush();
+
+
+            $this->addFlash('formSuccess', 'Trajet envoyé');
+            return $this->redirectToRoute('homepage');
+        }
+
+        return ['form' => $form->createView()];
     }
     /**
      * @Route("/contact", name="contact")

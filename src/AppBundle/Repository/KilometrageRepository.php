@@ -10,4 +10,11 @@ namespace AppBundle\Repository;
  */
 class KilometrageRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @return mixed
+     */
+    public function getLastKilometrage()
+    {
+        /* TODO */
+    }
 }
