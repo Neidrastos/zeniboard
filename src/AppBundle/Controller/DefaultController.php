@@ -47,7 +47,11 @@ class DefaultController extends Controller
             $em->flush();
 
             $this->addFlash('formSuccess', 'Trajet envoyé');
-            return $this->redirectToRoute('homepage');
+            if ($request->get('_route') == 'newTraject') {
+                return $this->redirectToRoute('indexTraject');
+            } else {
+                return $this->redirectToRoute('homepage');
+            }
         }
 
         return ['form' => $form->createView()];
