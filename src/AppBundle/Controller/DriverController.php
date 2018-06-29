@@ -28,7 +28,18 @@ class DriverController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('@AppBundle/admin/driver/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $driverRepo = $em->getRepository('AppBundle:Utilisateur');
+
+        $vehiclesTab = $driverRepo->findAll();
+
+        if(empty($vehiclesTab)) {
+            $this->addFlash('info', "Aucun conducteur n'a été créé pour le moment !");
+        }
+
+        return $this->render('@AppBundle/admin/driver/index.html.twig', [
+            'drivers' => $driverRepo->findAll()
+        ]);
     }
 
     /**
