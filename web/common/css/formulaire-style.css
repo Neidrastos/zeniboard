@@ -1,0 +1,85 @@
+html{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: white;
+    background-color: #134A80;
+    width: 100vw;
+    height: 100vh;
+    max-width:100%;
+
+
+}
+
+.container {
+    height: 100%;
+    margin-top: 5%;
+}
+
+
+.row {
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+form {
+    display: flex;
+    justify-content: space-around;
+    margin: 1%;
+    height: 80%;
+    width: 100%;
+
+}
+
+#appbundle_trajet {
+    width: 100%;
+    margin: 5% 10% 10% 10%;
+
+}
+
+#appbundle_trajet_dateTrajet {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+}
+
+#appbundle_trajet_dateTrajet select {
+    width: 30%;
+    margin: 2% 0 2% 0;
+}
+
+
+
+img {
+    width: 40%;
+}
+
+
+nav {
+    position: absolute;
+    right: 10%;
+    top: 5%;
+
+}
+
+@media screen and (max-width: 640px) {
+    nav {
+        position: static;
+        text-align: right;
+
+    }
+}
