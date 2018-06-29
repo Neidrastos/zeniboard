@@ -24,7 +24,21 @@ class VehicleController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('@AppBundle/admin/vehicle/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $vehicleRepo = $em->getRepository('AppBundle:Vehicule');
+
+        $kmRepo = $em->getRepository('AppBundle:Kilometrage');
+        $kmRepo->getLastKilometrage();
+
+        $vehiclesTab = $vehicleRepo->findAll();
+
+        if(empty($vehiclesTab)) {
+            $this->addFlash('info', "Aucun véhicule n'a été créé pour le moment !");
+        }
+
+        return $this->render('@AppBundle/admin/vehicle/index.html.twig', [
+            'vehicles' => $vehicleRepo->findAll()
+        ]);
     }
 
     /**

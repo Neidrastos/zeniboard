@@ -3,6 +3,42 @@
 {% block body %}
     <div class="wrapper dashboard">
         <h2>Tous les véhicules</h2>
-        <a href="{{ path('newVehicle') }}" class="btn btn-success" role="button" aria-pressed="true">+ Ajouter un trajet</a>
+        <a href="{{ path('newVehicle') }}" class="btn btn-success" role="button" aria-pressed="true">+ Ajouter un véhicule</a>
+
+        {% for label, messages in app.flashes(['success', 'info', 'warning', 'error']) %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Immatriculation</th>
+            <th scope="col">Marque</th>
+            <th scope="col">Modèle</th>
+            <th scope="col">Carburant</th>
+            <th scope="col">Kilométrage</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        {% for vehicle in vehicles %}
+            <tr>
+                <td>{{ vehicle.id }}</td>
+                <td>{{ vehicle.immatriculationVehicule }}</td>
+                <td>{{ vehicle.marqueVehicule }}</td>
+                <td>{{ vehicle.modeleVehicule }}</td>
+                <td>{{ vehicle.carburant.nomCarburant }}</td>
+                <td>{{ vehicle.kilometrages[0].valeurKilometrage }} km</td>
+                <td><a href="{{ path('editVehicle', {'id': vehicle.id }) }}">Editer</a></td>
+                <td><a href="{{ path('deleteVehicle', {'id': vehicle.id }) }}">Supprimer</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+
     </div>
 {% endblock %}
