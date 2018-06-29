@@ -1,1 +1,61 @@
-Hello world route admin_dashboard !
+{% extends 'base-admin.html.twig' %}
+
+{% block body %}
+    <div class="wrapper dashboard">
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            Bienvenue sur le tableau de bord de <strong>ZeniBoard</strong> !
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <h2>Derniers trajets enregistrés</h2>
+        <div class="row">
+            <div class="card">
+                <h5 class="card-header">Trajet #54</h5>
+                <div class="card-body">
+                    <ul class="card-text">
+                        <li>Véhicule : <b>AD-158-JG</b></li>
+                        <li>Conducteur(s) : <b>Francis PLAT</b></li>
+                        <li>Nature : <b>Plein d'essence</b></li>
+                        <li>Destinaton : <b>Leclerc Atlantis</b></li>
+                        <li>Date : <b>23/09/2018</b></li>
+                    </ul>
+                    <a href="#" class="btn btn-primary float-right">Voir le trajet</a>
+                </div>
+            </div>
+            <div class="card">
+                <h5 class="card-header">Trajet #53</h5>
+                <div class="card-body">
+                    <ul class="card-text">
+                        <li>Véhicule : <b>AD-158-JG</b></li>
+                        <li>Conducteur(s) : <b>Francis PLAT</b></li>
+                        <li>Nature : <b>Plein d'essence</b></li>
+                        <li>Destinaton : <b>Leclerc Atlantis</b></li>
+                        <li>Date : <b>23/09/2018</b></li>
+                    </ul>
+                    <a href="#" class="btn btn-primary float-right">Voir le trajet</a>
+                </div>
+            </div>
+            <div class="card">
+                <h5 class="card-header">Trajet #52</h5>
+                <div class="card-body">
+                    <ul class="card-text">
+                        <li>Véhicule : <b>AD-158-JG</b></li>
+                        <li>Conducteur(s) : <b>Francis PLAT</b></li>
+                        <li>Nature : <b>Plein d'essence</b></li>
+                        <li>Destinaton : <b>Leclerc Atlantis</b></li>
+                        <li>Date : <b>23/09/2018</b></li>
+                    </ul>
+                    <a href="#" class="btn btn-primary float-right">Voir le trajet</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+    <script>
+        $('.alert').alert()
+    </script>
+{% endblock %}

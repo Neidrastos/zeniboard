@@ -1,0 +1,40 @@
+{% extends 'base-admin-login.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto text-center login-window">
+                <h1>Bienvenue sur</h1><br>
+                <img src="{{ asset('common/img/logo-zeniboard.jpg') }}" width="240px">
+                <br><br>
+
+                {% if error %}
+                    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                <form action="{{ path('login') }}" method="post">
+                    <div class="form-group">
+                        <label for="username">Adresse email</label>
+                        <input type="email" class="form-control" id="username" name="_username" aria-describedby="emailHelp"  placeholder="Votre adresse email" value="{{ last_username }}">
+                        <small id="emailHelp" class="form-text text-muted">Rôle conducteur : user@eni.fr<br>Rôle administrateur : admin@eni.fr</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" class="form-control" id="password" name="_password" placeholder="Votre mot de passe">
+                        <small id="emailHelp" class="form-text text-muted">Mot de passe : test</small>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Rester connecter</label>
+                    </div>
+                    {#
+                        If you want to control the URL the user
+                        is redirected to on success (more details below)
+                        <input type="hidden" name="_target_path" value="/account" />
+                    #}
+                    <button type="submit" class="btn btn-primary">Se connecter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

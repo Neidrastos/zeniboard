@@ -11,15 +11,20 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AdminController extends Controller
+/**
+ * Parameter controller.
+ *
+ * @Route("admin/parameter")
+ */
+class ParameterController extends Controller
 {
     /**
-     * Displays the admin dashboard
+     * Displays the lists of parameters
      *
-     * @Route("/admin", name="adminDashboard")
+     * @Route("/", name="indexParameter")
     */
     public function indexAction()
     {
-        return $this->render('@AppBundle/admin/index.html.twig');
+        return $this->render('@AppBundle/admin/parameter/index.html.twig');
     }
 }

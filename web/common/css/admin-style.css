@@ -1,0 +1,43 @@
+body.admin-login {
+    color: white;
+    background-color: #134A80;
+}
+
+.wrapper {
+    margin-top: 20px;
+}
+
+h1,h2,h3 {
+    margin: 40px 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+body.admin .navbar-nav .nav-link.active {
+    color: #134A80;
+    font-weight: 600;
+}
+/* CONNEXION */
+
+body.admin-login .login-window {
+    margin-top: 50px;
+    width: 300px;
+}
+
+body.admin-login .login-window .btn {
+    margin-top: 20px;
+}
+
+.wrapper.dashboard .card {
+    margin: 10px;
+}
+
+.row {
+    justify-content: center;
+}
+
+.footer-links {
+    position: fixed;
+    bottom: 50px;
+}
+

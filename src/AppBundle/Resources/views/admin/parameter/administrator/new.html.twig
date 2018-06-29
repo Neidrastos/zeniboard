@@ -1,0 +1,15 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block body %}
+
+{{ form_start(form) }}
+    {{ form_row(form.emailUtilisateur) }}
+    {{ form_row(form.prenomUtilisateur) }}
+    {{ form_row(form.nomUtilisateur) }}
+    {{ form_row(form.plainPassword.first) }}
+    {{ form_row(form.plainPassword.second) }}
+
+<button type="submit">Register!</button>
+{{ form_end(form) }}
+
+{% endblock %}
