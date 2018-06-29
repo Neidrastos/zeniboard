@@ -38,15 +38,7 @@ class TrajectController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new traject
-     *
-     * @Route("/new", name="newTraject")
-     */
-    public function newAction()
-    {
-        return $this->render('@AppBundle/admin/traject/new.html.twig');
-    }
+
 
     /**
      * Displays a form to edit an existing traject entity.

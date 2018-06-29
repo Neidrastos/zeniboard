@@ -1,17 +1,29 @@
-{%  extends 'base.html.twig' %}
+{% extends app.request.get('_route') == 'homepage'
+    ? 'base.html.twig'
+    : 'base-admin.html.twig' %}
 
 {% block body %}
-    <nav>
-        <a class="btn btn-primary"  href="{{ path('logout') }}" type="button" class="btn btn-outline-secondary btn-sm">Déconnexion</a>
-    </nav>
 
-    <div class="container">
+    {% if app.request.get('_route') == 'homepage'  %}
+        <nav>
+            <a class="btn btn-primary"  href="{{ path('logout') }}" type="button" class="btn btn-outline-secondary btn-sm">Déconnexion</a>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <img class="img-fluid" src="{{ asset('common/img/logo-zeniboard.jpg') }}" alt="">
+                <h1>Formulaire de création de trajet</h1>
+    {% endif %}
 
+    {% if app.request.get('_route') == 'newTraject'  %}
+        <div class="wrapper">
+        <h2>Nouveau trajet</h2>
+    {% endif %}
 
-        <div class="row">
-            <img class="img-fluid" src="{{ asset('common/img/logo-zeniboard.jpg') }}" alt="">
-            <h1>Formulaire de création de trajet</h1>
-            {{ form(form) }}
-        </div>
+    {{ form(form) }}
     </div>
+
+    {% if app.request.get('_route') == 'homepage'  %}
+        </div>
+    {% endif %}
+
 {% endblock %}

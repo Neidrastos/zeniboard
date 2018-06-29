@@ -16,6 +16,7 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     * @Route("/admin/traject/new", name="newTraject")
      *
      * @Template
      */
@@ -44,7 +45,6 @@ class DefaultController extends Controller
             $em->persist($trajet);
 
             $em->flush();
-
 
             $this->addFlash('formSuccess', 'Trajet envoyé');
             return $this->redirectToRoute('homepage');
