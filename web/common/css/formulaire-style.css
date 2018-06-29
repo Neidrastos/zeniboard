@@ -77,9 +77,6 @@ nav {
 
 @media screen and (max-width: 640px) {
     nav {
-        text-align: right;
-    }
-    nav {
         position: static;
         text-align: right;
 
