@@ -44,8 +44,8 @@
                         <td>{{ traject.kilometrage.valeurKilometrage }} km</td>
                         <td>{{ traject.pleins|length }}</td>
                         <td>{{ traject.commentaireTrajet }}</td>
-                        <td><a href="{{ path('editDriver', {'id': traject.id }) }}">Editer</a></td>
-                        <td><a href="{{ path('deleteDriver', {'id': traject.id }) }}">Supprimer</a></td>
+                        <td><a href="{{ path('editTraject', {'id': traject.id }) }}">Editer</a></td>
+                        <td><a href="{{ path('deleteTraject', {'id': traject.id }) }}">Supprimer</a></td>
                     </tr>
                 {% endfor %}
             </table>

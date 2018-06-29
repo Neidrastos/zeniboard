@@ -86,7 +86,7 @@ class DriverController extends Controller
      */
     public function editAction()
     {
-        return $this->render('@MediaBundle/admin/driver/edit.html.twig');
+        return $this->render('@AppBundle/admin/driver/edit.html.twig');
     }
 
     /**

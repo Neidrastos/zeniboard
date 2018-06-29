@@ -1,9 +1,12 @@
 {% extends 'base-admin.html.twig' %}
 
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_row(form.nomLieuReception) }}
+    <div class="wrapper">
+        <h2>Ajouter un lieu de réception</h2>
+        {{ form_start(form) }}
+        {{ form_row(form.nomLieuReception) }}
 
-    <button type="submit">Enregistrer</button>
-    {{ form_end(form) }}
+        <button type="submit">Ajouter</button>
+        {{ form_end(form) }}
+    </div>
 {% endblock %}

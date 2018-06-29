@@ -1,15 +1,19 @@
 {% extends 'base-admin.html.twig' %}
 
 {% block body %}
+    <div class="wrapper dashboard">
+        <h2>Ajouter un conducteur</h2>
 
-    {{ form_start(form) }}
-    {{ form_row(form.emailUtilisateur) }}
-    {{ form_row(form.prenomUtilisateur) }}
-    {{ form_row(form.nomUtilisateur) }}
-    {{ form_row(form.plainPassword.first) }}
-    {{ form_row(form.plainPassword.second) }}
+        {{ form_start(form) }}
+        {{ form_row(form.emailUtilisateur) }}
+        {{ form_row(form.prenomUtilisateur) }}
+        {{ form_row(form.nomUtilisateur) }}
+        {{ form_row(form.plainPassword.first) }}
+        {{ form_row(form.plainPassword.second) }}
 
-    <button type="submit">Register!</button>
-    {{ form_end(form) }}
+        <button type="submit">Ajouter</button>
+        {{ form_end(form) }}
+
+    </div>
 {% endblock %}
 

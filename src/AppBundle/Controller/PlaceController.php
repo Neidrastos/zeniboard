@@ -69,7 +69,7 @@ class PlaceController extends Controller
      */
     public function editAction()
     {
-        return $this->render('@MediaBundle/admin/parameter/place/edit.html.twig');
+        return $this->render('@AppBundle/admin/parameter/place/edit.html.twig');
     }
 
     /**

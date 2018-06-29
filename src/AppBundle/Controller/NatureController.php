@@ -69,7 +69,7 @@ class NatureController extends Controller
      */
     public function editAction()
     {
-        return $this->render('@MediaBundle/admin/parameter/nature/edit.html.twig');
+        return $this->render('@AppBundle/admin/parameter/nature/edit.html.twig');
     }
 
     /**

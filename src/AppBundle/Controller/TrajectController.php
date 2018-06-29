@@ -48,7 +48,7 @@ class TrajectController extends Controller
      */
     public function editAction()
     {
-        return $this->render('@MediaBundle/admin/traject/edit.html.twig');
+        return $this->render('@AppBundle/admin/traject/edit.html.twig');
     }
 
     /**

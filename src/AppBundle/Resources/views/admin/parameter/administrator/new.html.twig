@@ -2,14 +2,19 @@
 
 {% block body %}
 
-{{ form_start(form) }}
-    {{ form_row(form.emailUtilisateur) }}
-    {{ form_row(form.prenomUtilisateur) }}
-    {{ form_row(form.nomUtilisateur) }}
-    {{ form_row(form.plainPassword.first) }}
-    {{ form_row(form.plainPassword.second) }}
+    <div class="wrapper">
+        <h2>Editer un utilisateur</h2>
 
-<button type="submit">Register!</button>
-{{ form_end(form) }}
+        {{ form_start(form) }}
+            {{ form_row(form.emailUtilisateur) }}
+            {{ form_row(form.prenomUtilisateur) }}
+            {{ form_row(form.nomUtilisateur) }}
+            {{ form_row(form.plainPassword.first) }}
+            {{ form_row(form.plainPassword.second) }}
+
+            <button type="submit">Ajouter</button>
+        {{ form_end(form) }}
+
+    </div>
 
 {% endblock %}

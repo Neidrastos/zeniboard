@@ -1,9 +1,12 @@
 {% extends 'base-admin.html.twig' %}
 
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_row(form.nomNatureDeplacement) }}
+   <div class="wrapper">
+        <h2>Ajouter une nature de trajet</h2>
+        {{ form_start(form) }}
+        {{ form_row(form.nomNatureDeplacement) }}
 
-<button type="submit">Enregistrer</button>
-{{ form_end(form) }}
+        <button type="submit">Ajouter</button>
+        {{ form_end(form) }}
+   </div>
 {% endblock %}

@@ -59,7 +59,7 @@ class VehicleController extends Controller
      */
     public function editAction()
     {
-        return $this->render('@MediaBundle/admin/vehicle/edit.html.twig');
+        return $this->render('@AppBundle/admin/vehicle/edit.html.twig');
     }
 
     /**
