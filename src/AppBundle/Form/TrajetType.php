@@ -64,17 +64,14 @@ class TrajetType extends AbstractType
                 'label' => 'Immatriculation Véhicule'
             ))
             ->add('kilometrage', NumberType::class, array(
-                    'label' => 'Kilométrage du véhicule à l arrivée : ',
+                    'label' => 'Kilométrage du véhicule à l\'arrivée : ',
                     'constraints' => array(
                         new NotBlank()),
                     'mapped' => false
             ))
 
-
-
-
-
             ->add('commentaireTrajet', TextareaType::class, array(
+                'required' => false ,
                 'constraints' => array(
                     new Length(array('max' => '255'))
                 )
