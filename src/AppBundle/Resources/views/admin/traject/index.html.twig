@@ -4,5 +4,51 @@
     <div class="wrapper dashboard">
         <h2>Tous les trajets</h2>
         <a href="{{ path('newTraject') }}" class="btn btn-success" role="button" aria-pressed="true">+ Ajouter un trajet</a>
+
+
+        {% for label, messages in app.flashes(['success', 'info', 'warning', 'error']) %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        {% if trajects|length %}
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Véhicule</th>
+                    <th scope="col">Conducteur</th>
+                    <th scope="col">Nature du trajet</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Lieu de réception</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Kilométrage</th>
+                    <th scope="col">Pleins</th>
+                    <th scope="col">Commentaire</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                {% for traject in trajects %}
+                    <tr>
+                        <td>{{ traject.id }}</td>
+                        <td>{{ traject.vehicule.immatriculationVehicule }}</td>
+                        <td>{{ traject.utilisateur.prenomUtilisateur|capitalize }} {{ traject.utilisateur.nomUtilisateur|upper }}</td>
+                        <td>{{ traject.natureDeplacement.nomNatureDeplacement }}</td>
+                        <td>{{ traject.dateTrajet|date('d/m/Y') }}</td>
+                        <td>{{ traject.lieuReception.nomLieuReception }}</td>
+                        <td>{{ traject.nomDestinationTrajet }}</td>
+                        <td>{{ traject.kilometrage.valeurKilometrage }} km</td>
+                        <td>{{ traject.pleins|length }}</td>
+                        <td>{{ traject.commentaireTrajet }}</td>
+                        <td><a href="{{ path('editDriver', {'id': traject.id }) }}">Editer</a></td>
+                        <td><a href="{{ path('deleteDriver', {'id': traject.id }) }}">Supprimer</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
     </div>
 {% endblock %}

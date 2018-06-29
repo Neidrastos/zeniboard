@@ -24,7 +24,18 @@ class TrajectController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('@AppBundle/admin/traject/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $trajectRepo = $em->getRepository('AppBundle:Trajet');
+
+        $trajectTab = $trajectRepo->findAll();
+
+        if(empty($trajectTab)) {
+            $this->addFlash('info', "Aucun trajet n'a été créé pour le moment !");
+        }
+
+        return $this->render('@AppBundle/admin/traject/index.html.twig', [
+            'trajects' => $trajectRepo->findAll()
+        ]);
     }
 
     /**
