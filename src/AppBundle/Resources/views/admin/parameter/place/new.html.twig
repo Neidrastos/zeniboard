@@ -1,1 +1,9 @@
-Hello world route newPlace!
+{% extends 'base-admin.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_row(form.nomLieuReception) }}
+
+    <button type="submit">Enregistrer</button>
+    {{ form_end(form) }}
+{% endblock %}

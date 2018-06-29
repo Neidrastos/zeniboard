@@ -1,1 +1,9 @@
-Hello world route newNature!
+{% extends 'base-admin.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_row(form.nomNatureDeplacement) }}
+
+<button type="submit">Enregistrer</button>
+{{ form_end(form) }}
+{% endblock %}
