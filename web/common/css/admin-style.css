@@ -35,3 +35,9 @@ body.admin-login .login-window .btn {
 .row {
     justify-content: center;
 }
+
+.footer-links {
+    position: fixed;
+    bottom: 50px;
+}
+
