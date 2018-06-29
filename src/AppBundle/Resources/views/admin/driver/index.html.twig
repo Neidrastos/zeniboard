@@ -13,30 +13,31 @@
             {% endfor %}
         {% endfor %}
 
-        <table class="table">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Prénom</th>
-                <th scope="col">Email</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-            </tr>
-            </thead>
-            {% for driver in drivers %}
-                {% if driver.roles[0] == "ROLE_USER" %}
-                    <tr>
-                        <td>{{ driver.id }}</td>
-                        <td>{{ driver.nomUtilisateur }}</td>
-                        <td>{{ driver.prenomUtilisateur }}</td>
-                        <td>{{ driver.emailUtilisateur }}</td>
-                        <td><a href="{{ path('editDriver', {'id': driver.id }) }}">Editer</a></td>
-                        <td><a href="{{ path('deleteDriver', {'id': driver.id }) }}">Supprimer</a></td>
-                    </tr>
-                {% endif %}
-            {% endfor %}
-        </table>
-
+        {% if drivers|length %}
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Email</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                {% for driver in drivers %}
+                    {% if driver.roles[0] == "ROLE_USER" %}
+                        <tr>
+                            <td>{{ driver.id }}</td>
+                            <td>{{ driver.prenomUtilisateur|capitalize }}</td>
+                            <td>{{ driver.nomUtilisateur|upper }}</td>
+                            <td>{{ driver.emailUtilisateur }}</td>
+                            <td><a href="{{ path('editDriver', {'id': driver.id }) }}">Editer</a></td>
+                            <td><a href="{{ path('deleteDriver', {'id': driver.id }) }}">Supprimer</a></td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        {% endif %}
     </div>
 {% endblock %}

@@ -31,9 +31,9 @@ class DriverController extends Controller
         $em = $this->getDoctrine()->getManager();
         $driverRepo = $em->getRepository('AppBundle:Utilisateur');
 
-        $vehiclesTab = $driverRepo->findAll();
+        $driversTab = $driverRepo->findAll();
 
-        if(empty($vehiclesTab)) {
+        if(empty($driversTab)) {
             $this->addFlash('info', "Aucun conducteur n'a été créé pour le moment !");
         }
 
